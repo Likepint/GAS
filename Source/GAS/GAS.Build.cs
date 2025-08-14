@@ -7,14 +7,23 @@ public class GAS : ModuleRules
 	public GAS(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
-	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput" });
+		
+		PublicIncludePaths.Add(ModuleDirectory);
+		
+		PublicDependencyModuleNames.Add("Core");
+		PublicDependencyModuleNames.Add("CoreUObject");
+		PublicDependencyModuleNames.Add("Engine");
+		PublicDependencyModuleNames.Add("InputCore");
+		PublicDependencyModuleNames.Add("EnhancedInput");
 
-		PrivateDependencyModuleNames.AddRange(new string[] {  });
+		// Gameplay Ability System
+		PublicDependencyModuleNames.Add("GameplayAbilities");
+		PublicDependencyModuleNames.Add("GameplayTags");
+		PublicDependencyModuleNames.Add("GameplayTasks");
 
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
-		
+
 		// Uncomment if you are using online features
 		// PrivateDependencyModuleNames.Add("OnlineSubsystem");
 
